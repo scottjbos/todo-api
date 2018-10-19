@@ -19,6 +19,10 @@ x64/
 x86/
 build/
 bld/
+bin/
+Bin/
+obj/
+Obj/
 out/
 Out/
 

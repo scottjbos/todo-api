@@ -5,6 +5,9 @@ using TodoApi.Models;
 
 namespace TodoApi.Controllers
 {
+	/// <summary>
+    /// Provides API for managing Todo entities.
+    /// </summary>
 	[Route("api/[controller]")]
 	[ApiController]
 	public class TodoController : ControllerBase
@@ -24,12 +27,21 @@ namespace TodoApi.Controllers
 			}
 		}
 
+		/// <summary>
+		/// Retrieve a list of Todo entities.
+		/// </summary>
+		/// <returns>Returns a a list of Todos</returns>
 		[HttpGet]
 		public ActionResult<List<TodoItem>> GetAll()
 		{
 			return _context.TodoItems.ToList();
 		}
 
+		/// <summary>
+		/// Retrieves a Todo entity.
+		/// </summary>
+		/// <param name="id">todo item id</param>
+		/// <returns>Returns a Todo.  If the id doesn't exist, then a 404 Not Found is returned.</returns>
 		[HttpGet("{id}", Name = "GetTodo")]
 		public ActionResult<TodoItem> GetById(long id)
 		{
@@ -41,6 +53,11 @@ namespace TodoApi.Controllers
 			return item;
 		}
 
+		/// <summary>
+		/// Create a Todo entity.
+		/// </summary>
+		/// <param name="item">todo item</param>
+        /// <returns>Returns the created Todo.</returns>
 		[HttpPost]
 		public IActionResult Create(TodoItem item)
 		{
@@ -50,6 +67,12 @@ namespace TodoApi.Controllers
 			return CreatedAtRoute("GetTodo", new { id = item.Id }, item);
 		}
 
+		/// <summary>
+		/// Updates a Todo entity.
+		/// </summary>
+		/// <param name="id">todo item id</param>
+		/// <param name="item">todo item</param>
+        /// <returns>Returns updated Todo.  If the id doesn't exist, then a 404 Not Found is returned.</returns>
 		[HttpPut("{id}")]
 		public IActionResult Update(long id, TodoItem item)
 		{
@@ -67,6 +90,11 @@ namespace TodoApi.Controllers
 			return NoContent();
 		}
 
+		/// <summary>
+		/// Deletes a Todo entity.
+		/// </summary>
+		/// <param name="id">todo item id</param>
+		/// <returns>Returns 204 No Content if Todo exist.  If the id doesn't exist, then a 404 Not Found is returned.</returns>
 		[HttpDelete("{id}")]
 		public IActionResult Delete(long id)
 		{

@@ -8,6 +8,7 @@ namespace TodoApi.Controllers
 	/// <summary>
     /// Provides API for managing Todo entities.
     /// </summary>
+	[Produces("application/json")]
 	[Route("api/[controller]")]
 	[ApiController]
 	public class TodoController : ControllerBase
@@ -31,7 +32,9 @@ namespace TodoApi.Controllers
 		/// Retrieve a list of Todo entities.
 		/// </summary>
 		/// <returns>Returns a a list of Todos</returns>
+		/// <response code="200">Returns a list of todo items</response>
 		[HttpGet]
+		[ProducesResponseType(200)]
 		public ActionResult<List<TodoItem>> GetAll()
 		{
 			return _context.TodoItems.ToList();
@@ -41,8 +44,12 @@ namespace TodoApi.Controllers
 		/// Retrieves a Todo entity.
 		/// </summary>
 		/// <param name="id">todo item id</param>
-		/// <returns>Returns a Todo.  If the id doesn't exist, then a 404 Not Found is returned.</returns>
+		/// <returns>Returns a TodoItem</returns>
+		/// <response code="200">Returns the created item</response>
+		/// <response code="404">If the item is not found</response>
 		[HttpGet("{id}", Name = "GetTodo")]
+		[ProducesResponseType(200)]
+		[ProducesResponseType(404)]
 		public ActionResult<TodoItem> GetById(long id)
 		{
 			var item = _context.TodoItems.Find(id);
@@ -57,8 +64,13 @@ namespace TodoApi.Controllers
 		/// Create a Todo entity.
 		/// </summary>
 		/// <param name="item">todo item</param>
-        /// <returns>Returns the created Todo.</returns>
+        /// <returns>A newly created TodoItem</returns>
+		/// <response code="201">Returns the newly created item</response>
+		/// <response code="400">If the item is null</response> 
 		[HttpPost]
+		[Consumes("application/json")]
+		[ProducesResponseType(201)]
+		[ProducesResponseType(400)]
 		public IActionResult Create(TodoItem item)
 		{
 			_context.TodoItems.Add(item);
@@ -72,9 +84,14 @@ namespace TodoApi.Controllers
 		/// </summary>
 		/// <param name="id">todo item id</param>
 		/// <param name="item">todo item</param>
-        /// <returns>Returns updated Todo.  If the id doesn't exist, then a 404 Not Found is returned.</returns>
+        /// <returns>An updated TodoItem.</returns>
+		/// <response code="200">Returns the updated item</response>
+		/// <response code="404">If the id doesn't exist</response>
 		[HttpPut("{id}")]
-		public IActionResult Update(long id, TodoItem item)
+		[Consumes("application/json")]
+		[ProducesResponseType(200)]
+		[ProducesResponseType(404)]
+		public ActionResult<TodoItem> Update(long id, TodoItem item)
 		{
 			var todo = _context.TodoItems.Find(id);
 			if (todo == null)
@@ -87,15 +104,19 @@ namespace TodoApi.Controllers
 
 			_context.TodoItems.Update(todo);
 			_context.SaveChanges();
-			return NoContent();
+			return todo;
 		}
 
 		/// <summary>
 		/// Deletes a Todo entity.
 		/// </summary>
 		/// <param name="id">todo item id</param>
-		/// <returns>Returns 204 No Content if Todo exist.  If the id doesn't exist, then a 404 Not Found is returned.</returns>
+		/// <returns>No Content</returns>
+		/// <response code="204">No content if the Todo is succesfully deleted</response>
+		/// <response code="404">If the item is not found</response>
 		[HttpDelete("{id}")]
+		[ProducesResponseType(204)]
+		[ProducesResponseType(404)]
 		public IActionResult Delete(long id)
 		{
 			var todo = _context.TodoItems.Find(id);

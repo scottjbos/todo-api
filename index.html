@@ -27,21 +27,29 @@
 				<section>
                     <h2>Document your Web API</h2>
                     <div>By Scott Bos</div>
+                </section>                 
+                <section>
+                    <h3 class="uncapitalize"><span style="color: red;">Challenge</span></h3>
+                    <p>
+                        APIs are only as good as their documentation. A great API can be rendered useless if 
+                        people don’t know how to use it, which is why documentation can be crucial for success 
+                        in the API economy. But creating and maintaining good documentation that’s easy to read, 
+                        enjoyable to interact with, and sets the consumer up for success can be extremely challenging.
+                    </p>
+                </section>                               
+                <section>
+                    <img data-src="img/rise-to-challenge.jpg"/>                    
                 </section>
                 <section>
-                    <section>
-                        <h2>So... what's the <span style="color: red;">problem</span>?</h2>
-                        <p class="fragment">How to document your a REST Api and publishing the results to others?</p>                    
-                    </section>
-                    <section>
-                        <h1 style="display: inline;">Bigger</h1><h2 style="color: red;display: inline;">Problem</h2>
-                        <p class="fragment">Keeping it up to date!</p>                    
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <img data-src="img/can-we-fix-it.jpg" style="height: 500px;"/>
-                    </section>
+                    <h3 class="uncapitalize">What should good API Documentation contain?</h3>
+                    <ul>
+                        <li class="fragment"><span class="bold">Media Types</span> - format of a request or response body data</li>
+                        <li class="fragment"><span class="bold">Endpoints/Resources</span> - list of all endpoints with all relevant information for each endpoint</li>
+                        <li class="fragment"><span class="bold">Request bodies</span> - request body type</li>
+                        <li class="fragment"><span class="bold">Responses</span> - define all possibly responses</li>
+                        <li class="fragment"><span class="bold">Authentication</span> - define all authentication types supported by the API</li>
+                        <li class="fragment"><span class="bold">Examples</span> - examples of parameters, properties, and objects</li>
+                    </ul>
                 </section>
                 <section>
                     <section>
@@ -67,10 +75,10 @@ public IHttpActionResult GetById(long id)
                         </code></pre>
                     </section>
                     <section>
-                        <img data-src="img/aspnet-web-api-help-page-sample.png" style="height: 500px;"/>
+                        <img data-src="img/aspnet-web-api-help-page-sample.png"/>
                     </section>
                     <section>
-                        <img data-src="img/key-features.jpg" style="height: 500px;"/>
+                        <img data-src="img/key-features.jpg"/>
                     </section>
                     <section>
                         <h2>Features</h2>
@@ -82,14 +90,14 @@ public IHttpActionResult GetById(long id)
                         </ul>
                     </section>
                     <section>
-                        <img data-src="img/customize.png" style="height: 500px;"/>
+                        <img data-src="img/customize.png"/>
                     </section>
                     <section>
                         <h2 style="text-transform: none;">MiCaRS Web API Help Page</h2>
                         <a style="word-break: break-all;" href="http://mspmicars.kunzleigh.com/Sigma-Master-Webservices/Help">http://mspmicars.kunzleigh.com/Sigma-Master-Webservices/Help</a>
                     </section>
                     <section>
-                        <img data-src="img/cool-story-bro-house.jpg" style="height: 500px;"/>
+                        <img data-src="img/cool-story-bro-house.jpg"/>
                     </section>
                     <section>
                         <h2 style="text-transform: none;">But... my project isn't written in ASP.NET</h2>
@@ -97,7 +105,7 @@ public IHttpActionResult GetById(long id)
                 </section>
                 <section>
                     <section>
-                        <h1 style="color: green;text-transform: none;">Swagger</h1>
+                        <h3 class="uncapitalize"><span style="color: green;">Swagger</span> aka OpenAPI</h3>
                         <img data-src="img/swagger-logo.png"/>
                         <p>
                             Test and Document Your APIs With Ease.
@@ -107,36 +115,28 @@ public IHttpActionResult GetById(long id)
                         </p>
                     </section>
                     <section>
-                        <h2 style="text-transform: none;">What is Swagger?</h2>
+                        <h3 class="uncapitalize">What is <span style="color: green;">Swagger</span></h3>
                         <p class="fragment">Swagger is a language-agnostic specification for describing REST APIs.</p>
+                    </section>                    
+					<section>
+                        <img data-src="img/swagger-api-example.png"/>
+                    </section>
+					<section>
+                        <img data-src="img/swagger-call-api-example.png"/>
                     </section>
                     <section>
-                        <p>
-                            APIs are only as good as their documentation. A great API can be rendered useless if 
-                            people don’t know how to use it, which is why documentation can be crucial for success 
-                            in the API economy. But creating and maintaining good documentation that’s easy to read, 
-                            enjoyable to interact with, and sets the consumer up for success can be extremely challenging.
-                        </p>
+                        <h3>Live Demo</h3>
                     </section>
 					<section>
-                        <img data-src="img/swagger-api-example.png" style="height: 500px;"/>
-                    </section>
-					<section>
-                        <img data-src="img/swagger-call-api-example.png" style="height: 500px;"/>
-                    </section>
-                    <section>
-                        <h2>Live Demo</h2>
-                    </section>
-					<section>
-						<h2>Implementation Examples</h2>
+						<h3>Implementation Examples</h3>
 						<ul>
                             <li class="fragment"><a href="https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages">ASP.NET Web API</a></li>
 							<li class="fragment"><a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-2.1&tabs=visual-studio%2Cvisual-studio-xml">Dotnet Core Web API</a></li>
-							<li class="fragment"><a href="https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api">Java Spring Boot</a></li>
+							<li class="fragment"><a href="https://hantsy.gitbooks.io/build-a-restful-app-with-spring-mvc-and-angularjs/content/swagger.html">Java Spring Boot</a></li>
                     </section>
                 </section>
                 <section>
-                    <h2>Questions?</h2>
+                    <img data-src="img/any-questions.jpg"/>
                 </section>           
 			</div>
 		</div>

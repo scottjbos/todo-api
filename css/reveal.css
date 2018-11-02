@@ -1,3 +1,7 @@
+/* Custom */
+.reveal span.bold { font-weight: bold; }
+.reveal h1.uncapitalize, .reveal h2.uncapitalize, .reveal h3.uncapitalize { text-transform: none; }
+.reveal section img { height: 500px; }
 /*!
  * reveal.js
  * http://revealjs.com

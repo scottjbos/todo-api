@@ -24,8 +24,86 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+                    <h2>Publish your Web API</h2>
+                    <div>By Scott Bos</div>
+                </section>
+                <section>
+                    <section>
+                        <h2>So... what's the <span style="color: red;">problem</span>?</h2>
+                        <p class="fragment">How to document your a REST Api and publishing the results to others?</p>                    
+                    </section>
+                    <section>
+                        <h1 style="display: inline;">Bigger</h1><h2 style="color: red;display: inline;">Problem</h2>
+                        <p class="fragment">Keeping it up to date!</p>                    
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <img data-src="img/can-we-fix-it.jpg" style="height: 500px;"/>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>ASP.NET Web Api Help Page</h2>
+                        <a style="word-break: break-all;">https://www.nuget.org/packages/Microsoft.AspNet.WebApi.HelpPage/</a>
+                    </section>
+                    <section>
+                        <pre><code>
+/// <summary>
+/// Retrieves a Todo entity.
+/// </summary>
+/// <param name="id">todo item id</param>
+/// <returns>Returns a TodoItem</returns>
+[HttpGet]
+[Route("{id}")]
+[ResponseCodes(HttpStatusCode.OK, HttpStatusCode.NotFound)]
+[ResponseType(typeof(TodoItem))]
+public IHttpActionResult GetById(long id)
+{
+    var item = _context.TodoItems.Find(id);
+    return item == null ? NotFound(): Ok(item);
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <img data-src="img/web-api-help-page-sample.png" style="height: 500px;"/>
+                    </section>
+                    <section>
+                        <img data-src="img/key-features.jpg" style="height: 500px;"/>
+                    </section>
+                    <section>
+                        <h2>Features</h2>
+                        <ul>
+                            <li class="fragment">Easily added to your project</li>
+                            <li class="fragment">Automatically generates help page style content for your Web API endpoints</li>
+                            <li class="fragment">Utilizes class and method comments</li>
+                            <li class="fragment">Bundled and Deployed with your Web API application</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img data-src="img/customize.png" style="height: 500px;"/>
+                    </section>
+                    <section>
+                        <h2 style="text-transform: none;">MiCaRS Web API Help Page</h2>
+                        <a style="word-break: break-all;" href="http://mspmicars.kunzleigh.com/Sigma-Master-Webservices/Help">http://mspmicars.kunzleigh.com/Sigma-Master-Webservices/Help</a>
+                    </section>
+                    <section>
+                        <img data-src="img/cool-story-bro-house.jpg" style="height: 500px;"/>
+                    </section>
+                    <section>
+                        <h2 style="text-transform: none;">But... my project isn't written in ASP.NET</h2>
+                    </section>                    
+                </section>
+                <section>
+                    <section>
+                        <h1 style="color: green;text-transform: none;">Swagger</h1>
+                        <img data-src="img/swagger-logo.png"/>
+                        <p>
+                            <a href="https://swagger.io/">https://swagger.io/</a>
+                        </p>
+                    </section>
+                </section>
 			</div>
 		</div>
 
